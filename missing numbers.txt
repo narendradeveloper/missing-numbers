@@ -1,0 +1,103 @@
+1) input: [23, 33, 200, 785]
+output:  30
+
+
+arr=[23, 33, 200, 785]
+dup="",unq=""
+for(i of arr){
+    istr=String(i).split("").map(Number)
+    emp=[]
+    for(j of istr){
+        if(!emp.includes(j)){
+            emp.push(j)
+        }
+    }
+    for(k of emp){
+        c=0
+        for(z of istr){
+            if(k==z){
+                c++
+            }
+        }
+        if(c==1){
+  unq=unq+k+""
+        }
+        else{
+            dup=dup+k+""
+        }
+    }
+}
+console.log(dup)
+
+2) input: [ 538, 111, 200, 652]
+output:   [ false, false, false, true]
+
+arr=[ 538, 111, 200, 652]
+emp=[]
+for(i of arr){
+    istr=String(i)
+    c=0
+    for(j=0;j<istr.length-1;j++){
+        if(istr[j+1]<istr[j]){
+            c++
+        }
+    }
+    emp.push(istr.length-1 ==c)
+}
+console.log(emp)
+
+ 3WAP to print uniques and duplicates without using includes method
+input: 112
+output: 
+Uniques: 2
+Duplicates: 1
+
+arr= "112";
+uniques = [],duplicates = [];
+
+for (let i = 0; i < arr.length; i++) {
+    let Duplicate = false;
+    for (let j = 0; j < uniques.length; j++) {
+        if (uniques[j] == arr[i]) {
+            Duplicate = true;
+            break;
+        }
+    }
+
+    if (Duplicate) {
+        let x = false;
+        for (let k = 0; k < duplicates.length; k++) {
+            if (duplicates[k] == arr[i]) {
+                x = true;
+                break;
+            }
+        }
+        if (!x) {
+            duplicates.push(arr[i]);
+        }
+    } else {
+        uniques.push(arr[i]);
+    }
+}
+console.log("Uniques:", uniques.join(''));
+console.log("Duplicates:", duplicates.join(''));
+
+ 4WAP to print first missing fibonnacci umber
+input: 10 1 0 5 7
+output: 2
+
+num=[10 ,1 ,0, 5 ,7]
+a=0,b=1,nonfib=0
+while(nonfib!=num){
+    for(i=a+1;i<b;i++){
+        console.log(i)
+        nonfib++
+        if(nonfib==num)
+        break
+    }
+    c=a+b
+    a=b
+    b=c
+}
+
+
